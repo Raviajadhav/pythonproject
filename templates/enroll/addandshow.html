@@ -1,0 +1,54 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-4" >
+        <h2 class= "text-center alert alert-info">Add New Books</h2>
+        <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-success" value="Add">
+        </form>
+    </div>
+    <div class="col-sm-7 offset">
+        <h2 class= "text-center alert alert-info">Show Books information</h2>
+        {% if stu %}
+        <table class="table">
+  <thead>
+  <body bgcolor="skyblue">
+    <tr>
+        <center>
+      <th scope="col">Id</th>
+      <th scope="col">Bookname</th>
+      <th scope="col">Bookid</th>
+      <th scope="col">Author</th>
+        <th scope="col">Action</th>
+        </center>
+    </tr>
+  </body>
+  </thead>
+
+  <tbody>
+  {% for i in stu %}
+    <tr>
+      <th scope="row">{{i.id}}</th>
+      <td>{{i.bookname}}</td>
+      <td>{{i.bookid}}</td>
+      <td>{{i.author}}</td>
+        <td>
+            <a href="{% url 'updatedata' i.id%}" class="btn btn-warning btn-sm">Update</a>
+            <form action="{% url 'deletedata' i.id %}" method="post" class="d-inline">{% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="delete">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+        {% else %}
+        <h4 class= "text-center alert alert-info">No Records</h4>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body bgcolor="lightblue">
+<h1><font color="red"><marquee>Welcome to library management</marquee></font></h1><br><br><hr>
+<center>
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Admin Registration Page</h2><br><br>
+    firstname:<input  type="text" name="firstname"><br><br>
+    lastname:<input type="text" name="lastname"><br><br>
+    Username:<input type="text" name="username"><br><br>
+    Email:<input required type="email" name="email"><br><br>
+    Password:<input type="password" name="password"><br><br>
+        confirm Password:<input type="password" name="confirm password"><br><br>
+
+    <button type="submit"><a href="login.html" > register admin</a></button>
+<!--        <a href="login.html" > register admin</a>/-->
+    </form>
+</center>
+</body>
+</html>
